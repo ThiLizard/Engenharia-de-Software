@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+
+  frontend:
+
+    depends_on:
+      - backend
+  
+  backend:
+
+    depends_on:
+      - db
+
+  db:
+    image:
+    environment:
+      - name=value
+    ports:
+      -
+    volumes:
+      -
+
+volumes:
