@@ -1,0 +1,220 @@
+/* Landing Page Layout */
+.landing-container {
+    min-height: 100vh;
+    background-color: #111827;
+    /* gray-900 */
+    color: var(--white);
+    padding: 0;
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header/Navbar */
+.landing-header {
+    padding: var(--spacing-lg) 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo-icon {
+    color: #60a5fa;
+    /* blue-400 */
+    width: 32px;
+    height: 32px;
+}
+
+.landing-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+
+.btn-login-nav {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-login-nav:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    background-color: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.hero-headline {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-headline span {
+    color: #60a5fa;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    /* gray-400 */
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    color: var(--white);
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.5);
+}
+
+.arrow-icon {
+    margin-left: 0.5rem;
+}
+
+/* Problem/Soluction Section */
+.info-section {
+    padding: 4rem 2rem;
+    background-color: #1f2937;
+    /* gray-800 */
+}
+
+.info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-head h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.grid-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: #111827;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #374151;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #4b5563;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.feature-icon.alert {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.feature-icon.check {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.feature-icon.shield {
+    background-color: rgba(168, 85, 247, 0.1);
+    color: #a855f7;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+/* Footer */
+.landing-footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.landing-footer p {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
