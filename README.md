@@ -81,4 +81,4 @@ Projeto desenvolvido por:
 - Thiago Marcel Messias de Andrade  
 
 **Orientação / Produto Owner:**  
-Profa. Dra. Adicinéia A. de Oliveira
+Profa. Dra. Adicinéia A. de Oliveira 
