@@ -36,10 +36,10 @@ CREATE DATABASE educare;
 
 ### 3. Configurar Variáveis de Ambiente
 
-Copie o arquivo `.env.example` para `.env`:
+Copie o arquivo `.env_example` para `.env`:
 
 ```bash
-cp .env.example .env
+cp .env_example .env
 ```
 
 Edite o arquivo `.env` com suas credenciais do PostgreSQL:
