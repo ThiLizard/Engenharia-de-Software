@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '../../components/Router.tsx';
 import authService from '../../services/authService';
 import '../../styles/ForgotPassword.css';
 

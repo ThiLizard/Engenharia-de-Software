@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '../../components/Router.tsx';
 import '../../styles/Login.css';
 
 interface LoginFormData {

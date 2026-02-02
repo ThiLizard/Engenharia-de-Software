@@ -1,6 +1,6 @@
-import { Activity, AlertTriangle, FileText, MessageSquare, TrendingUp } from 'lucide-react';
+import { Activity, AlertTriangle, FileText, MessageSquare, TrendingUp } from '../../components/Icons.tsx';
 import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '../../components/Router.tsx';
 import Navbar from '../../components/Navbar';
 import '../../styles/Dashboard.css';
 

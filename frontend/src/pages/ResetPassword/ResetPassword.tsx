@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from '../../components/Router.tsx';
 import authService from '../../services/authService';
 import '../../styles/ResetPassword.css';
 

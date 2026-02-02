@@ -1,5 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { Home, Activity, MessageSquare, LogOut, User, Menu, X } from 'lucide-react';
+import { Link, useNavigate } from './Router.tsx';
+import { Home, Activity, MessageSquare, LogOut, User, Menu, X } from './Icons.tsx';
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/Navbar.css';

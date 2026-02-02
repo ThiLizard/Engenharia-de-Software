@@ -1,4 +1,4 @@
-import { Send, Paperclip } from 'lucide-react';
+import { Send, Paperclip } from '../../components/Icons.tsx';
 import Navbar from '../../components/Navbar';
 import '../../styles/Chat.css';
 

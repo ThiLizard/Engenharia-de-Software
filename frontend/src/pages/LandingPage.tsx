@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, AlertCircle, Activity, HeartPulse } from 'lucide-react';
+import { Link } from '../components/Router.tsx';
+import { ArrowRight, ShieldCheck, AlertCircle, Activity, HeartPulse } from '../components/Icons.tsx';
 import '../styles/LandingPage.css';
 
 const LandingPage = () => {

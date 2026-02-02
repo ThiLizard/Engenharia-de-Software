@@ -1,4 +1,4 @@
-import { Thermometer, Save, XCircle } from 'lucide-react';
+import { Thermometer, Save, XCircle } from '../components/Icons.tsx';
 import Navbar from '../components/Navbar';
 import '../styles/Forms.css';
 
