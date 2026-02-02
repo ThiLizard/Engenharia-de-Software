@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link } from '../../components/Router.tsx';
-import '../../styles/Login.css';
+import { useState } from "react";
+import { Link } from "../../components/Router.tsx";
+import "../../styles/Login.css";
 
 interface LoginFormData {
   email: string;
@@ -15,8 +15,8 @@ interface LoginError {
 
 export default function Login() {
   const [formData, setFormData] = useState<LoginFormData>({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const [errors, setErrors] = useState<LoginError>({});
@@ -27,15 +27,15 @@ export default function Login() {
     const newErrors: LoginError = {};
 
     if (!formData.email) {
-      newErrors.email = 'Email é obrigatório';
+      newErrors.email = "Email é obrigatório";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Email inválido';
+      newErrors.email = "Email inválido";
     }
 
     if (!formData.password) {
-      newErrors.password = 'Senha é obrigatória';
+      newErrors.password = "Senha é obrigatória";
     } else if (formData.password.length < 6) {
-      newErrors.password = 'Senha deve ter no mínimo 6 caracteres';
+      newErrors.password = "Senha deve ter no mínimo 6 caracteres";
     }
 
     setErrors(newErrors);
@@ -67,10 +67,10 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/login', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: formData.email,
@@ -79,18 +79,18 @@ export default function Login() {
       });
 
       if (!response.ok) {
-        throw new Error('Falha na autenticação');
+        throw new Error("Falha na autenticação");
       }
 
       const data = await response.json();
 
       // Salvar token e dados do usuário
-      localStorage.setItem('authToken', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      window.location.href = '/dashboard';
+      localStorage.setItem("authToken", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.location.href = "/dashboard";
     } catch (error) {
       setErrors({
-        general: 'Email ou senha inválidos',
+        general: "Email ou senha inválidos",
       });
     } finally {
       setIsLoading(false);
@@ -98,9 +98,9 @@ export default function Login() {
   };
 
   const handleMockLogin = (type: string) => {
-    localStorage.setItem('authToken', 'mock-token');
-    localStorage.setItem('userType', type);
-    window.location.href = '/dashboard';
+    localStorage.setItem("authToken", "mock-token");
+    localStorage.setItem("userType", type);
+    window.location.href = "/dashboard";
   };
 
   return (
@@ -109,14 +109,14 @@ export default function Login() {
         <div className="login-header">
           <div className="login-icon">🏥</div>
           <h1>EduCare</h1>
-          <p className="subtitle">Sistema de Comunicação e Monitoramento de Doenças</p>
+          <p className="subtitle">
+            Sistema de Comunicação e Monitoramento de Doenças
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">
           {errors.general && (
-            <div className="error-message general-error">
-              {errors.general}
-            </div>
+            <div className="error-message general-error">{errors.general}</div>
           )}
 
           <div className="form-group">
@@ -128,28 +128,25 @@ export default function Login() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="seu.email@escola.com"
-                className={errors.email ? 'input-error' : ''}
+                placeholder="✉️ seu.email@escola.com"
+                className={errors.email ? "input-error" : ""}
                 disabled={isLoading}
               />
-              <span className="input-icon">✉️</span>
             </div>
-            {errors.email && (
-              <span className="error-text">{errors.email}</span>
-            )}
+            {errors.email && <span className="error-text">{errors.email}</span>}
           </div>
 
           <div className="form-group">
             <label htmlFor="password">Senha</label>
             <div className="input-wrapper">
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Digite sua senha"
-                className={errors.password ? 'input-error' : ''}
+                className={errors.password ? "input-error" : ""}
                 disabled={isLoading}
               />
               <button
@@ -158,7 +155,7 @@ export default function Login() {
                 onClick={() => setShowPassword(!showPassword)}
                 disabled={isLoading}
               >
-                {showPassword ? '👁️' : '👁️‍🗨️'}
+                {showPassword ? "👁️" : "👁️‍🗨️"}
               </button>
             </div>
             {errors.password && (
@@ -176,25 +173,21 @@ export default function Login() {
             </Link>
           </div>
 
-          <button
-            type="submit"
-            className="login-button"
-            disabled={isLoading}
-          >
+          <button type="submit" className="login-button" disabled={isLoading}>
             {isLoading ? (
               <>
                 <span className="spinner"></span>
                 Entrando...
               </>
             ) : (
-              'Entrar'
+              "Entrar"
             )}
           </button>
         </form>
 
         <div className="login-footer">
           <p>
-            Não tem conta?{' '}
+            Não tem conta?{" "}
             <Link to="/register" className="signup-link">
               Criar conta
             </Link>
@@ -204,10 +197,34 @@ export default function Login() {
         <div className="user-types">
           <p className="user-types-title">Tipos de usuário:</p>
           <div className="user-types-list">
-            <button type="button" onClick={() => handleMockLogin('escola')} className="user-type">🏫 Escola</button>
-            <button type="button" onClick={() => handleMockLogin('medico')} className="user-type">👨‍⚕️ Médico</button>
-            <button type="button" onClick={() => handleMockLogin('responsavel')} className="user-type">👤 Responsável</button>
-            <button type="button" onClick={() => handleMockLogin('admin')} className="user-type">📊 Admin</button>
+            <button
+              type="button"
+              onClick={() => handleMockLogin("escola")}
+              className="user-type"
+            >
+              🏫 Escola
+            </button>
+            <button
+              type="button"
+              onClick={() => handleMockLogin("medico")}
+              className="user-type"
+            >
+              👨‍⚕️ Médico
+            </button>
+            <button
+              type="button"
+              onClick={() => handleMockLogin("responsavel")}
+              className="user-type"
+            >
+              👤 Responsável
+            </button>
+            <button
+              type="button"
+              onClick={() => handleMockLogin("admin")}
+              className="user-type"
+            >
+              📊 Admin
+            </button>
           </div>
         </div>
       </div>
