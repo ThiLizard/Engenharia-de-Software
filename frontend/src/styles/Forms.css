@@ -1,137 +1,261 @@
-/* Page Container */
+/* Page Container - Sem Navbar, estilo similar ao Login/Register */
 .page-container {
     min-height: 100vh;
-    background-color: var(--background-light);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--spacing-lg);
+    padding: 2rem 1rem;
 }
 
 .form-card {
-    background: var(--white);
+    background: white;
     width: 100%;
-    max-width: 500px;
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Header */
 .form-card header {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 2.5rem;
 }
 
 .icon-header {
-    color: var(--primary-color);
-    width: 48px;
-    height: 48px;
-    margin-bottom: var(--spacing-sm);
+    color: #667eea;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .form-card h1 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: var(--spacing-sm);
+    font-size: 2rem;
+    color: #333;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
 }
 
 .form-card p {
-    color: var(--text-light);
-    font-size: 0.9rem;
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* Form Styles */
 .symptom-form {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .input-group label {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
-    color: var(--text-color);
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
 }
 
 .input-group input {
     width: 100%;
-    padding: var(--spacing-md);
-    border: 1px solid #e0e0e0;
-    border-radius: var(--border-radius-md);
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
     font-size: 1rem;
-    transition: border-color 0.2s;
+    transition: all 0.3s;
+    background: white;
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
+.input-group input:hover {
+    border-color: #d1d5db;
+}
+
+/* Checklist */
 .checklist {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    background: #fafafa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
 }
 
 .checklist h3 {
-    font-size: 1rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-color);
+    font-size: 1.05rem;
+    margin: 0 0 1rem 0;
+    color: #333;
+    font-weight: 700;
 }
 
 .checkbox-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 0.75rem;
     cursor: pointer;
-    padding: var(--spacing-sm);
-    border-radius: var(--border-radius-sm);
-    transition: background-color 0.2s;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    margin-bottom: 0.5rem;
+    background: white;
+    border: 1px solid #e0e0e0;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.checkbox-item:last-child {
+    margin-bottom: 0;
 }
 
 .checkbox-item:hover {
-    background-color: var(--background-light);
+    background: #f3f4f6;
+    border-color: #667eea;
 }
 
 .checkbox-item input[type="checkbox"] {
-    accent-color: var(--primary-color);
+    width: 20px;
+    height: 20px;
+    accent-color: #667eea;
+    cursor: pointer;
+}
+
+.checkbox-item:has(input:checked) {
+    background: #eef2ff;
+    border-color: #667eea;
 }
 
 /* Form Actions */
 .form-actions {
     display: flex;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-sm);
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .btn-save,
 .btn-cancel {
     flex: 1;
-    padding: var(--spacing-md);
+    padding: 1rem 1.5rem;
     border: none;
-    border-radius: var(--border-radius-md);
+    border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
-    transition: opacity 0.2s;
+    gap: 0.5rem;
+    transition: all 0.3s;
+    font-size: 1rem;
 }
 
 .btn-save {
-    background: var(--primary-color);
-    color: var(--white);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
 .btn-cancel {
-    background: #f0f0f0;
-    color: var(--text-color);
+    background: #f3f4f6;
+    color: #333;
+    border: 2px solid #e0e0e0;
 }
 
-.btn-save:hover,
 .btn-cancel:hover {
-    opacity: 0.9;
+    background: #e5e7eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .form-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .form-card h1 {
+        font-size: 1.75rem;
+    }
+
+    .icon-header {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-card h1 {
+        font-size: 1.5rem;
+    }
+
+    .icon-header {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: 1rem 0.75rem;
+    }
+
+    .form-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .form-card h1 {
+        font-size: 1.35rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-save,
+    .btn-cancel {
+        width: 100%;
+    }
 }

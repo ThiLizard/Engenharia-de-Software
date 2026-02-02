@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/Login.css';
 
 interface LoginFormData {
@@ -66,13 +67,15 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      // Simular chamada à API
-      const response = await fetch('/api/login', {
+      const response = await fetch('http://localhost:8080/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
       });
 
       if (!response.ok) {
@@ -81,8 +84,9 @@ export default function Login() {
 
       const data = await response.json();
 
-      // Salvar token e redirecionar
+      // Salvar token e dados do usuário
       localStorage.setItem('authToken', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
       window.location.href = '/dashboard';
     } catch (error) {
       setErrors({
@@ -167,9 +171,9 @@ export default function Login() {
               <input type="checkbox" disabled={isLoading} />
               <span>Lembrar-me</span>
             </label>
-            <a href="#forgot" className="forgot-password">
+            <Link to="/forgot-password" className="forgot-password">
               Esqueceu a senha?
-            </a>
+            </Link>
           </div>
 
           <button
@@ -191,9 +195,9 @@ export default function Login() {
         <div className="login-footer">
           <p>
             Não tem conta?{' '}
-            <a href="#signup" className="signup-link">
-              Solicite acesso
-            </a>
+            <Link to="/register" className="signup-link">
+              Criar conta
+            </Link>
           </p>
         </div>
 

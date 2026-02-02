@@ -1,53 +1,135 @@
-import { Activity, AlertTriangle, MessageSquare, Users } from 'lucide-react';
+import { Activity, AlertTriangle, FileText, MessageSquare, TrendingUp } from 'lucide-react';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 import '../../styles/Dashboard.css';
 
 export default function Dashboard() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
   return (
-    <div className="dashboard-layout">
-      <header className="dash-header">
-        <div className="brand">🏥 EduCare</div>
-        <div className="user-info">
-          <span>Olá, <strong>Responsável João</strong></span>
-          <div className="avatar">JS</div>
+    <>
+      <Navbar />
+      <div className="dashboard-container">
+        <div className="dashboard-content">
+          {/* Welcome Section */}
+          <div className="welcome-section">
+            <div className="welcome-text">
+              <h1>Bem-vindo, {user?.name}! 👋</h1>
+              <p>Acompanhe a saúde e bem-estar dos alunos em tempo real</p>
+            </div>
+            <div className="user-badge">
+              <span className="badge-label">Tipo de Conta</span>
+              <span className="badge-value">{user?.userType}</span>
+            </div>
+          </div>
+
+          {/* Summary Cards */}
+          <div className="summary-cards">
+            <div className="summary-card alert-card">
+              <div className="card-icon alert-icon">
+                <AlertTriangle size={28} />
+              </div>
+              <div className="card-content">
+                <h3>Alertas Ativos</h3>
+                <p className="card-value">2</p>
+                <span className="card-subtitle">Surtos na região</span>
+              </div>
+            </div>
+
+            <div className="summary-card success-card">
+              <div className="card-icon success-icon">
+                <Activity size={28} />
+              </div>
+              <div className="card-content">
+                <h3>Status Geral</h3>
+                <p className="card-value">Saudável</p>
+                <span className="card-subtitle">Monitoramento em dia</span>
+              </div>
+            </div>
+
+            <div className="summary-card info-card">
+              <div className="card-icon info-icon">
+                <TrendingUp size={28} />
+              </div>
+              <div className="card-content">
+                <h3>Registros</h3>
+                <p className="card-value">12</p>
+                <span className="card-subtitle">Este mês</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content Grid */}
+          <div className="main-grid">
+            {/* Recent Activity */}
+            <div className="panel recent-activity">
+              <div className="panel-header">
+                <h2>Atividades Recentes</h2>
+                <button className="view-all-btn">Ver todas</button>
+              </div>
+              <div className="activity-list">
+                <div className="activity-item">
+                  <div className="activity-icon success">✅</div>
+                  <div className="activity-details">
+                    <p className="activity-title">Sintomas registrados</p>
+                    <span className="activity-time">Hoje, 07:30</span>
+                  </div>
+                </div>
+                <div className="activity-item">
+                  <div className="activity-icon info">💊</div>
+                  <div className="activity-details">
+                    <p className="activity-title">Medicação administrada</p>
+                    <span className="activity-time">Ontem, 20:00</span>
+                  </div>
+                </div>
+                <div className="activity-item">
+                  <div className="activity-icon warning">📢</div>
+                  <div className="activity-details">
+                    <p className="activity-title">Comunicado: "Vacinação"</p>
+                    <span className="activity-time">2 dias atrás</span>
+                  </div>
+                </div>
+                <div className="activity-item">
+                  <div className="activity-icon success">✅</div>
+                  <div className="activity-details">
+                    <p className="activity-title">Consulta médica realizada</p>
+                    <span className="activity-time">3 dias atrás</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="panel quick-actions">
+              <div className="panel-header">
+                <h2>Ações Rápidas</h2>
+              </div>
+              <div className="actions-list">
+                <button
+                  className="action-btn primary"
+                  onClick={() => navigate('/sintomas')}
+                >
+                  <FileText size={20} />
+                  <span>Registrar Sintomas</span>
+                </button>
+                <button
+                  className="action-btn secondary"
+                  onClick={() => navigate('/chat')}
+                >
+                  <MessageSquare size={20} />
+                  <span>Chat com a Escola</span>
+                </button>
+                <button className="action-btn tertiary">
+                  <Activity size={20} />
+                  <span>Histórico Médico</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </header>
-
-      <main className="dash-content">
-        <section className="summary-cards">
-          <div className="card alert">
-            <AlertTriangle size={32} />
-            <div>
-              <h3>Surtos na Região</h3>
-              <p>2 Alertas Ativos</p>
-            </div>
-          </div>
-          <div className="card status">
-            <Activity size={32} />
-            <div>
-              <h3>Status do Aluno</h3>
-              <p>Monitoramento em dia</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="main-grid">
-          <div className="panel recent-activity">
-            <h2>Atividades Recentes</h2>
-            <ul>
-              <li>✅ Sintomas registrados - Hoje, 07:30</li>
-              <li>💊 Medicação administrada - Ontem, 20:00</li>
-              <li>📢 Comunicado da Escola: "Vacinação" - 2 dias atrás</li>
-            </ul>
-          </div>
-
-          <div className="panel quick-actions">
-            <h2>Ações Rápidas</h2>
-            <button className="btn-action">📝 Registrar Sintomas</button>
-            <button className="btn-action">💬 Chat com a Escola</button>
-            <button className="btn-action secondary">📅 Histórico Médico</button>
-          </div>
-        </section>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
