@@ -1,6 +1,6 @@
 package com.software_engineering.EduCare.dto;
 
-import com.software_engineering.EduCare.model.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,5 +12,9 @@ public class RegisterRequest {
     private String email;
     private String password;
     private String name;
-    private User.UserType userType;
+    private String login;
+    private String cpf;
+    private String contato;
+    private java.time.LocalDate dataNascimento;
+    private String userType; // Changed to String to handle subclass decision in service
 }

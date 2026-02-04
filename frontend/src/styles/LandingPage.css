@@ -8,6 +8,7 @@
     font-family: var(--font-family);
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* Header/Navbar */
@@ -84,7 +85,7 @@
 }
 
 .hero-headline {
-    font-size: 2.75rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
     line-height: 1.2;
     font-weight: 800;
     margin-bottom: 1.5rem;
@@ -135,8 +136,9 @@
 }
 
 .info-container {
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
-    margin: 0;
 }
 
 .section-head {
@@ -152,7 +154,7 @@
 
 .grid-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 

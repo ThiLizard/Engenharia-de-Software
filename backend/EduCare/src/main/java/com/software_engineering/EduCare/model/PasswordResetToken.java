@@ -23,7 +23,7 @@ public class PasswordResetToken {
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Usuario user;
     
     @Column(nullable = false)
     private LocalDateTime expiryDate;
