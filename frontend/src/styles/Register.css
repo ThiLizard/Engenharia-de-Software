@@ -37,7 +37,6 @@
 .register-icon {
     font-size: 4rem;
     margin-bottom: 1rem;
-    animation: bounce 1s ease infinite;
 }
 
 @keyframes bounce {
@@ -86,9 +85,8 @@
     padding: 0.9rem 1rem;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s;
     background: white;
+    color: #333;
 }
 
 .form-group input:focus,

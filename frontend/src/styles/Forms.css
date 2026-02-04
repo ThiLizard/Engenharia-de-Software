@@ -11,8 +11,8 @@
 .form-card {
     background: white;
     width: 100%;
-    max-width: 600px;
-    padding: 3rem 2.5rem;
+    max-width: 500px;
+    padding: 2.5rem 2rem;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: slideUp 0.5s ease-out;
@@ -93,9 +93,8 @@
     padding: 0.9rem 1rem;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s;
     background: white;
+    color: #333;
 }
 
 .input-group input:focus {

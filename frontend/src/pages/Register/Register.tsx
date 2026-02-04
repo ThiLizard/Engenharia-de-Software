@@ -135,7 +135,6 @@ export default function Register() {
                             <option value="RESPONSAVEL">👤 Responsável</option>
                             <option value="ESCOLA">🏫 Escola</option>
                             <option value="MEDICO">👨‍⚕️ Médico</option>
-                            <option value="ADMIN">📊 Administrador</option>
                         </select>
                     </div>
 

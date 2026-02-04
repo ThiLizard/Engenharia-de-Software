@@ -109,7 +109,7 @@ export default function Login() {
         <div className="login-header">
           <div className="login-icon">🏥</div>
           <h1>EduCare</h1>
-          <p className="subtitle">Sistema de Comunicação e Monitoramento de Doenças</p>
+          <p className="subtitle">Sistema de Comunicação e Monitoramento de Doenças em Ambiente Escolar</p>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">
@@ -132,7 +132,6 @@ export default function Login() {
                 className={errors.email ? 'input-error' : ''}
                 disabled={isLoading}
               />
-              <span className="input-icon">✉️</span>
             </div>
             {errors.email && (
               <span className="error-text">{errors.email}</span>
@@ -199,16 +198,6 @@ export default function Login() {
               Criar conta
             </Link>
           </p>
-        </div>
-
-        <div className="user-types">
-          <p className="user-types-title">Tipos de usuário:</p>
-          <div className="user-types-list">
-            <button type="button" onClick={() => handleMockLogin('escola')} className="user-type">🏫 Escola</button>
-            <button type="button" onClick={() => handleMockLogin('medico')} className="user-type">👨‍⚕️ Médico</button>
-            <button type="button" onClick={() => handleMockLogin('responsavel')} className="user-type">👤 Responsável</button>
-            <button type="button" onClick={() => handleMockLogin('admin')} className="user-type">📊 Admin</button>
-          </div>
         </div>
       </div>
     </div>

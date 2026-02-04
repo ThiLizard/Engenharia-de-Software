@@ -16,7 +16,7 @@
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 420px;
+  max-width: max-content;
   padding: 40px;
   animation: slideIn 0.5s ease-out;
 }

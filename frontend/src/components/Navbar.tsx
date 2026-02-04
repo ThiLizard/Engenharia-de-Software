@@ -31,22 +31,10 @@ export default function Navbar() {
                 </button>
 
                 <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-                    <div className="navbar-links">
-                        <Link to="/dashboard" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                            <Home size={20} />
-                            <span>Dashboard</span>
-                        </Link>
-                        <Link to="/sintomas" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                            <Activity size={20} />
-                            <span>Sintomas</span>
-                        </Link>
-                        <Link to="/chat" className="nav-link" onClick={() => setIsMenuOpen(false)}>
-                            <MessageSquare size={20} />
-                            <span>Chat</span>
-                        </Link>
-                    </div>
-
-                    <div className="navbar-user">
+                    <div className="navbar-user" onClick={() => {
+                        navigate('/configuracoes');
+                        setIsMenuOpen(false);
+                    }}>
                         <div className="user-info">
                             <div className="user-avatar">
                                 <User size={20} />
@@ -56,11 +44,39 @@ export default function Navbar() {
                                 <span className="user-type">{user?.userType}</span>
                             </div>
                         </div>
-                        <button className="logout-button" onClick={handleLogout}>
-                            <LogOut size={20} />
-                            <span>Sair</span>
-                        </button>
                     </div>
+
+                    <div className="navbar-links">
+                        <Link
+                            to="/dashboard"
+                            className={`nav-link ${window.location.pathname === '/dashboard' ? 'active' : ''}`}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            <Home size={20} />
+                            <span>Dashboard</span>
+                        </Link>
+                        <Link
+                            to="/sintomas"
+                            className={`nav-link ${window.location.pathname === '/sintomas' ? 'active' : ''}`}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            <Activity size={20} />
+                            <span>Sintomas</span>
+                        </Link>
+                        <Link
+                            to="/chat"
+                            className={`nav-link ${window.location.pathname === '/chat' ? 'active' : ''}`}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            <MessageSquare size={20} />
+                            <span>Chat</span>
+                        </Link>
+                    </div>
+
+                    <button className="logout-button" onClick={handleLogout}>
+                        <LogOut size={20} />
+                        <span>Sair</span>
+                    </button>
                 </div>
             </div>
         </nav>

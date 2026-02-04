@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard/Dashboard.tsx';
 import RegistroSintomas from './pages/RegistroSintomas';
 import Chat from './pages/Chat/Chat.tsx';
 import LandingPage from './pages/LandingPage.tsx';
+import Configuracoes from './pages/Configuracoes/Configuracoes.tsx';
 
 // Importação de Componentes
 import ProtectedRoute from './components/ProtectedRoute.tsx';
@@ -59,6 +60,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <Chat />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/configuracoes"
+            element={
+              <ProtectedRoute>
+                <Configuracoes />
               </ProtectedRoute>
             }
           />
