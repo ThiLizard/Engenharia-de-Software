@@ -84,7 +84,7 @@
 
 .input-group label {
     font-weight: 600;
-    color: #333;
+    color: #000000;
     font-size: 0.95rem;
 }
 
@@ -93,6 +93,7 @@
     padding: 0.9rem 1rem;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
+    color: #000;
     background: white;
     color: #333;
 }
