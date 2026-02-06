@@ -1,84 +1,122 @@
-# EduCare
 
-#### Sistema P2532 – Sistema de Comunicação e Monitoramento de Doenças no Ambiente Escolar 
+# 🏥 EduCare - Sistema de Comunicação e Monitoramento de Doenças
 
-## Visão Geral
+Sistema integrado para monitoramento de saúde escolar, facilitando a comunicação entre escolas, médicos e responsáveis.
 
-O **EduCare** é uma plataforma desenvolvida no contexto da disciplina **Engenharia de Software**, com o objetivo de apoiar a prevenção e o monitoramento de doenças no ambiente escolar por meio de uma comunicação eficiente entre escola, responsáveis e órgãos de saúde.
+## 🚀 Como Executar o Projeto
 
-O sistema visa reduzir a propagação de doenças infecciosas, especialmente respiratórias, promovendo ações preventivas, alertas rápidos e suporte à tomada de decisão baseada em dados.
+Você pode rodar o EduCare de duas formas: usando **Docker** (recomendado para rapidez) ou **Manualmente** (para desenvolvimento).
 
----
+### 🐳 1. Via Docker (Modo Rápido)
 
-## Objetivo do Projeto
+Certifique-se de ter o [Docker](https://www.docker.com/) instalado.
 
-Desenvolver uma solução tecnológica que permita:
+1. **Configure as variáveis:** O projeto já possui um arquivo `.env` configurado para o ambiente Docker.
+2. **Suba os containers:**
+```bash
+docker-compose down
+docker-compose build --no-cache
+docker-compose up 
+```
 
-- Monitorar informações de saúde dos alunos  
-- Facilitar a comunicação entre responsáveis, escola e órgãos de saúde  
-- Emitir notificações e alertas sobre sintomas, surtos e campanhas de saúde  
-- Apoiar a gestão escolar e autoridades de saúde na tomada de decisões preventivas  
 
----
+3. **Acesse:**
+* **Frontend:** `http://localhost:5173`
+* **Backend (API):** `http://localhost:8080`
+* **Banco (PostgreSQL):** Porta `5433` (conforme definido no seu `.env`).
 
-## Problema
 
-O ambiente escolar é propício à disseminação de doenças, especialmente entre crianças. Atualmente, escolas e responsáveis enfrentam dificuldades na identificação precoce de sintomas, no controle de surtos e na adoção de medidas preventivas, devido à ausência de mecanismos eficientes de comunicação e monitoramento estruturado da saúde dos alunos.
-
----
-
-## Público-Alvo
-
-- Pais ou responsáveis legais por alunos  
-- Equipe pedagógica (diretores, coordenadores e professores)  
-- Gestores de saúde municipais ou estaduais  
-- Alunos (de forma indireta)  
 
 ---
 
-## Principais Funcionalidades
+### 🛠️ 2. Execução Manual (Desenvolvimento)
 
-- Cadastro de escolas, alunos, responsáveis e órgãos de saúde  
-- Registro de informações e sintomas de saúde dos alunos  
-- Envio de notificações e alertas automáticos  
-- Comunicação via chat entre responsáveis e escola  
-- Consulta da situação de saúde por aluno, turma ou escola  
-- Geração de relatórios baseados no histórico de registros  
-- Emissão de alarmes em caso de falha no cumprimento de medicação  
-- Apoio a campanhas de vacinação e prevenção  
+#### **Pré-requisitos**
+
+* **Java 17 ou 21** 
+
+* **Node.js 20+** 
+
+* **PostgreSQL 16** 
+
+* **Maven**
+
+#### **Passo 1: Banco de Dados**
+
+Crie um banco de dados chamado `educare`. No seu terminal ou ferramenta SQL:
+
+```sql
+CREATE DATABASE educare;
+
+```
+
+As credenciais padrão no seu `.env` são: Usuário `teste` e Senha `teste123`.
+
+#### **Passo 2: Backend (Spring Boot)**
+
+1. Navegue até a pasta: `cd backend/EduCare`
+2. Instale e rode:
+```bash
+./mvnw spring-boot:run
+
+```
+
+
+
+#### **Passo 3: Frontend (React + Vite)**
+
+1. Navegue até a pasta: `cd frontend`
+2. Instale as dependências:
+```bash
+npm install
+
+```
+
+
+3. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+
+```
+
+
 
 ---
 
-## Atores do Sistema
+## ⚙️ Configurações (.env)
 
-- **Responsável**: registra sintomas, acompanha notificações e se comunica com a escola  
-- **Aluno**: entidade monitorada pelo sistema  
-- **Escola / Gestor Escolar**: acompanha dados de saúde, envia notificações e toma ações preventivas  
-- **Professor**: observa sintomas e notifica a escola  
-- **Órgão de Saúde**: monitora dados epidemiológicos e emite alertas regionais  
+O sistema utiliza as seguintes variáveis principais:
 
----
-
-## Metodologia
-
-O projeto segue princípios da **metodologia ágil Scrum**, com levantamento de requisitos funcionais e não funcionais, definição de backlog, planejamento de releases e documentação de casos de uso.
+| Variável | Descrição | Valor Padrão |
+| --- | --- | --- |
+| `POSTGRES_PORT` | Porta do Banco | `5433` |
+| `SPRING_PORT` | Porta da API | `8080` |
+| `VITE_API_URL` | URL base para o Front | `http://localhost:8080` |
+| `JWT_SECRET` | Chave de segurança | `segredo-super-forte-...` |
 
 ---
 
-## Tecnologias
+## 📚 Tecnologias Utilizadas
 
-As tecnologias específicas de implementação serão definidas durante o desenvolvimento do projeto, considerando requisitos de usabilidade, responsividade e segurança da informação.
+### **Backend**
+
+* **Java 17/21** com **Spring Boot 4.0.1**
+* **Spring Security + JWT** (Autenticação)
+* **Spring Data JPA** (Persistência)
+* **PostgreSQL 16** (Banco de dados) 
+* **Lombok** (Produtividade)
+
+### **Frontend**
+
+* **React 19** 
+* **TypeScript**
+* **Vite** (Build tool rápida)
+* **Axios** (Consumo de API)
 
 ---
 
-## Equipe
+## 📁 Estrutura de Pastas
 
-Projeto desenvolvido por:
-
-- João Vitor Viana Felix  
-- Jorge Henrique Marques Gomes  
-- Lucas Santos Calumbi  
-- Thiago Marcel Messias de Andrade  
-
-**Orientação / Produto Owner:**  
-Profa. Dra. Adicinéia A. de Oliveira 
+* `/backend`: API REST em Java.
+* `/frontend`: Interface Web em React.
+* `docker-compose.yml`: Orquestração dos serviços (db, backend, frontend).

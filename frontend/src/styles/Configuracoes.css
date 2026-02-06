@@ -1,0 +1,131 @@
+.config-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.config-container {
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.config-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+}
+
+.config-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.config-header h1 {
+    color: #1f2937;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.config-header p {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+.config-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #374151;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background: #f9fafb;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input:disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+    border-color: #e5e7eb;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.form-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .config-card {
+        padding: 1.5rem;
+    }
+
+    .config-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .save-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

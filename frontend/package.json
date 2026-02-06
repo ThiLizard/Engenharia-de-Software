@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "p2532-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3",
+    "axios": "^1.6.7",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
