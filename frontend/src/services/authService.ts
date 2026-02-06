@@ -10,6 +10,9 @@ export interface RegisterRequest {
     password: string;
     name: string;
     userType: 'ESCOLA' | 'MEDICO' | 'RESPONSAVEL' | 'ADMIN';
+    contato?: string;
+    schoolCode?: string;
+    cadastro?: string;
 }
 
 export interface User {

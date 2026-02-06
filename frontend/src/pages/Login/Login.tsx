@@ -97,11 +97,7 @@ export default function Login() {
     }
   };
 
-  const handleMockLogin = (type: string) => {
-    localStorage.setItem("authToken", "mock-token");
-    localStorage.setItem("userType", type);
-    window.location.href = "/dashboard";
-  };
+  // Mock login removed
 
   return (
     <div className="login-container">
