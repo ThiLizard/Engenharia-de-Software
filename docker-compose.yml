@@ -1,41 +1,24 @@
-services:
-  db:
-    image: postgres:16
-    container_name: educare-db
-    env_file:
-      - .env
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    ports:
-      - "${POSTGRES_PORT}:5432"
-    volumes:
-      - db_data:/var/lib/postgresql/data
+version: "3.8"
 
+services:
+
+  frontend:
+
+    depends_on:
+      - backend
+  
   backend:
-    build: ./backend
-    container_name: educare-backend
-    env_file:
-      - .env
-    environment:
-      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
-      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
-      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
-    ports:
-      - "${SPRING_PORT}:8080"
+
     depends_on:
       - db
 
-  frontend:
-    build: ./frontend
-    container_name: educare-frontend
-    env_file:
-      - .env
+  db:
+    image:
+    environment:
+      - name=value
     ports:
-      - "5173:5173"
-    depends_on:
-      - backend
+      -
+    volumes:
+      -
 
 volumes:
-  db_data:
