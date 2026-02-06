@@ -14,6 +14,7 @@ Certifique-se de ter o [Docker](https://www.docker.com/) instalado.
 1. **Configure as variáveis:** O projeto já possui um arquivo `.env` configurado para o ambiente Docker.
 2. **Suba os containers:**
 ```bash
+docker-compose down
 docker-compose build --no-cache
 docker-compose up 
 ```
